@@ -51,19 +51,7 @@ void	ft_identify_sprite(t_game *game, int y, int x)
 			ft_render_sprite (game, game->exit_closed, y, x);
 	}
 	else if (parameter == PLAYER)
-		ft_render_player (game, y, x);
-}
-
-void	ft_render_player(t_game *game, int y, int x)
-{
-	if (game->player_sprite == FRONT)
-		ft_render_sprite (game, game->player_front, y, x);
-	if (game->player_sprite == LEFT)
-		ft_render_sprite (game, game->player_left, y, x);
-	if (game->player_sprite == RIGHT)
-		ft_render_sprite (game, game->player_right, y, x);
-	if (game->player_sprite == BACK)
-		ft_render_sprite (game, game->player_back, y, x);
+		ft_render_sprite (game, game->player, y, x);
 }
 
 void	ft_render_sprite(t_game *game, t_image sprite, int line, int column)

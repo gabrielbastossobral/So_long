@@ -27,10 +27,7 @@ void	ft_destroy_images(t_game *game)
 	mlx_destroy_image(game->mlx_ptr, game->wall.xpm_ptr);
 	mlx_destroy_image(game->mlx_ptr, game->floor.xpm_ptr);
 	mlx_destroy_image(game->mlx_ptr, game->coins.xpm_ptr);
-	mlx_destroy_image(game->mlx_ptr, game->player_front.xpm_ptr);
-	mlx_destroy_image(game->mlx_ptr, game->player_left.xpm_ptr);
-	mlx_destroy_image(game->mlx_ptr, game->player_right.xpm_ptr);
-	mlx_destroy_image(game->mlx_ptr, game->player_back.xpm_ptr);
+	mlx_destroy_image(game->mlx_ptr, game->player.xpm_ptr);
 	mlx_destroy_image(game->mlx_ptr, game->exit_closed.xpm_ptr);
 	mlx_destroy_image(game->mlx_ptr, game->open_exit.xpm_ptr);
 }

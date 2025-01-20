@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: gabrielsobral <gabrielsobral@student.42    +#+  +:+       +#+         #
+#    By: gabastos <gabastos@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/01/17 11:48:30 by gabrielsobr       #+#    #+#              #
-#    Updated: 2025/01/17 13:13:18 by gabrielsobr      ###   ########.fr        #
+#    Updated: 2025/01/20 08:36:49 by gabastos         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,15 +16,12 @@ GREEN			= \033[0;32m
 RED				= \033[0;31m
 RESET			= \033[0m
 
-LIBFT 			= ./libft/libft.a
+LIBFT			= ./libft/libft.a
 
-CC 				= clang
+CC 				= cc
 
 STANDARD_FLAGS 	= -Wall -Werror -Wextra
 MINILIBX_FLAGS	= -lmlx -lXext -lX11
-
-VALGRIND		= @valgrind --leak-check=full --show-leak-kinds=all \
---track-origins=yes --quiet --tool=memcheck --keep-debuginfo=yes
 
 REMOVE 			= rm -f
 
@@ -41,25 +38,32 @@ SRCS 			= $(addprefix $(SRCS_DIR),\
 				ft_render_map.c		\
 				ft_utils.c)
 
+OBJS			= $(SRCS:.c=.o)
+
 all:			${LIBFT} ${NAME}
 
-${NAME}: 		
-				${CC} ${SRCS} ${LIBFT} ${STANDARD_FLAGS} ${MINILIBX_FLAGS} -o ${NAME}
+${LIBFT}:
+				@make -C libft
+				@echo
+
+${NAME}:		${OBJS}
+				${CC} ${OBJS} ${LIBFT} ${STANDARD_FLAGS} ${MINILIBX_FLAGS} -o ${NAME}
 				@echo "$(NAME): $(GREEN)$(NAME) was compiled.$(RESET)"
 				@echo
 
+${SRCS_DIR}%.o: ${SRCS_DIR}%.c
+				${CC} ${STANDARD_FLAGS} -c $< -o $@
+
 clean:
 				make clean -C libft
+				${REMOVE} ${OBJS}
 				@echo
 
-fclean:
-				${REMOVE} ${NAME} ${NAME_BONUS}
+fclean:			clean
+				${REMOVE} ${NAME} ${LIBFT}
 				@echo "${NAME}: ${RED}${NAME} was deleted${RESET}"
 				@echo
 
 re:				fclean all
 
-run:			${NAME}
-				${VALGRIND} ./${NAME} assets/maps/valid/map4.ber
-
-.PHONY:			all clean fclean re valgrind run
+.PHONY:			all clean fclean re valgrind
