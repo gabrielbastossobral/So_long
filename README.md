@@ -18,6 +18,16 @@ This project is about to construct a 2D game with a specific graphical library, 
 
 ![.](https://i.imgur.com/5XVKhI9.png)
 
+## How to play
+
+```
+make
+```
+
+```
+./so_long path/map
+```
+
 ## 🔗 Follow me
 [![portfolio](https://img.shields.io/badge/my_portfolio-000?style=for-the-badge&logo=ko-fi&logoColor=white)](https://github.com/gabrielbastossobral)
 [![linkedin](https://img.shields.io/badge/linkedin-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/gabriel-bastos-sobral-5aa8ba224/)
