@@ -16,7 +16,7 @@ This project is about to construct a 2D game with a specific graphical library, 
 
 ## Game
 
-![Photo game](/home/gabrielsobral/Imagens/Capturas de tela/Captura de tela de 2025-02-18 13-15-50.png)
+![Photo game]([/home/gabrielsobral/Imagens/Capturas de tela/Captura de tela de 2025-02-18 13-15-50.png](https://imgur.com/a/oGI5LEg))
 
 ## 🔗 Follow me
 [![portfolio](https://img.shields.io/badge/my_portfolio-000?style=for-the-badge&logo=ko-fi&logoColor=white)](https://github.com/gabrielbastossobral)
